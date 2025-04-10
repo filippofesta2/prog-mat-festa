@@ -30,7 +30,10 @@ public class MenuEsercizio {
 				calcola();
 				
 				break;
-			
+			case 'd':
+				dadi();
+				break;
+				
 			case 'q':
 				System.out.println("Stai uscendo dal programma...");
 				break;
@@ -64,7 +67,6 @@ public class MenuEsercizio {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Quanti num vuoi estrarre ? ");
 		int dimensione = scan.nextInt();
-		System.out.println("Tombolaaaaa");
 		
 		int [] numeriCasuali = new int[dimensione];
 		Random rand = new Random();
@@ -92,6 +94,9 @@ public class MenuEsercizio {
 		}
 		
 		System.out.println("Tombola chiusa");
+		System.out.println();
+		
+		stampaMenu();
 	}
 	
 	
@@ -129,7 +134,45 @@ public class MenuEsercizio {
 		
 		System.out.println(operazione);
 			
+		System.out.println();
+		stampaMenu();
 		}
+	
+	public static void dadi() {
+		
+		
+			Scanner s = new Scanner(System.in);
+			System.out.println("Inserisci il numero di facce del dado, premi q per tornare al menu");
+			int facce = s.nextInt();
+			Random rand = new Random();
+			int risultato1 = rand.nextInt(facce) + 1;
+			int risultato2 = rand.nextInt(facce) + 1;
+			
+			for (int i = 0; i < 2; i++) {
+				if(facce<2) {
+					System.out.println("un dado deve avere almeno 2 facce");
+					stampaMenu();
+					return;
+					
+				}
+				else {
+					
+				}
+			}
+			System.out.println("Il risultato1 è "+ risultato1);
+			System.out.println("Il risultato2 è "+ risultato2);
+			
+			if(risultato1==risultato2) {
+				System.out.println("Hai Vinto!");
+			}else {
+				System.out.println("Hai Perso!");
+			}
+			
+			System.out.println();
+			stampaMenu();
+	
+		
+	}
 
 
 }
